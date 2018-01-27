@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-header">
+    子组件
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">子组件</h5>
+    <div class="form-group">
+      <label for="input">子组件输入：</label>
+      <input type="text"
+             class="form-control"
+             id="input"
+             placeholder="Input something"
+             [(ngModel)]="contentFromChild"
+      >
+      <label for="output">子组件输出：</label>
+      <input type="text"
+             class="form-control"
+             id="output"
+             placeholder="Output something"
+             [(ngModel)]="fromParent"
+      >
+      <label for="serviceoutput">子组件服务输入：</label>
+      <input type="text"
+             class="form-control"
+             id="serviceoutput"
+             placeholder="服务输入"
+             [(ngModel)]="serviceInput"
+      >
+    </div>
+    <button  class="btn btn-primary" (click)="clickChild()">Output方式</button>
+    <button class="btn btn-primary" (click)="clickService()">Service方式</button>
+  </div>
+</div>
