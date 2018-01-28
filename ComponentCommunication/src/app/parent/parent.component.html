@@ -35,7 +35,7 @@
              [(ngModel)]="serviceInput"
       >
     </div>
-    <button class="btn btn-primary" (click)="clickView()">ViewChild方式</button>
+    <!--<button class="btn btn-primary" (click)="clickView()">ViewChild方式</button>-->
     <button class="btn btn-primary" (click)="clickService()">Service方式</button>
   </div>
 </div>
@@ -44,3 +44,6 @@
   (fromChild)="fromChild($event)"
 ></app-child>
 </div>
+<!--[fromParent]="parentPrint"-->
+<!--(fromChild)="fromChild($event)"-->
+

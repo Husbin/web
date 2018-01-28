@@ -13,8 +13,8 @@ export class ParentComponent implements OnInit {
   contentFromChild: any;
   serviceInput: any;
   subscription: Subscription = null;
-  @ViewChild(ChildComponent)
-  private childComponent: ChildComponent;
+  @ViewChild(ChildComponent)               // 使用viewChild导入引用
+  private childComponent: ChildComponent; // 将子组件注入到私有属性
   viewOutput: any;
   constructor(
     private meditor: MeditorService

@@ -8,10 +8,11 @@ import {Subscription} from 'rxjs/Subscription';
 })
 export class ChildComponent implements OnInit {
   contentFromChild: any;
-  private _fromParent: any;
+  private _fromParent: any;     //私有变量，通过setter获取父组件的数据
   subscription: Subscription = null;
   serviceInput: any;
-  @Input()
+  // @Input()fromParent;    //ts中，用于直接接收从父组件获取的数据
+  @Input()                      //通过setter获取父组件的数据
   set fromParent(fromParent: any) {
     this._fromParent = fromParent;
   }
