@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ol>
+    <li>第一项</li>
+    <li>第二项</li>
+    <li>第三项</li>
+    <li>第四项</li>
+</ol>
+</body>
+<script>
+    // window.onload = function() {  //  函数1
+    //     var lis = document.getElementsByTagName('li');
+    //     for (var i = 0; i < lis.length; i++) {
+    //         lis[i].onclick = function() {  //  函数2
+    //             alert(i);
+    //         }
+    //     }
+    // }
+    // 每次输出都是3
+
+    window.onload = function() {                    //  函数1
+        var lis = document.getElementsByTagName('li');
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].onclick = (function(private_i) {  //  函数2
+                return function() {                 //  函数3
+                    alert(private_i);
+                }
+            })(i);                                      //  这里将i作为参数，调用函数2
+        }
+    }
+</script>
+</html>
