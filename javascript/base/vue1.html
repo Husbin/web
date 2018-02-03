@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>My first Vue app</title>
+    <script src="https://unpkg.com/vue"></script>
+
+</head>
+<body>
+<h3>samlpe1 声明式渲染</h3>
+<div id="app">
+    {{ message }}
+</div><br><br><br><br><br><br>
+<h3>samlpe2 绑定DOM元素属性</h3>
+<div id="app-2">
+    <span v-bind:title="message">
+        鼠标悬停几秒钟查看此处动态绑定的提示信息！
+    </span>
+</div>
+<h3>samlpe3 条件</h3>
+<div id="app-3">
+    <p v-if="seen">now you can look me</p>
+</div>
+<h3>samlpe4 循环</h3>
+<div id="app-4">
+    <ol>
+        <li v-for="todo in todos">
+            {{todo.text}}
+        </li>
+    </ol>
+</div>
+<h3>samlpe5 事件监听</h3>
+<div id="app-5">
+    <p>{{message5}}</p>
+    <button v-on:click="reverseMessage">逆转信息</button>
+</div>
+<h3>samlpe6 表单与应用状态双向绑定</h3>
+<div id="app-6">
+    <p>{{message6}}</p>
+    <input v-model="message6">
+</div>
+<h3>samlpe7 组件化应用构建</h3>
+<div id="app-7">
+    <ol>
+        <!--
+        现在我们为每个todo-item提供todo对象
+        todo对象是变量，即内容可以是动态的。
+        我们也需要为每个组件提供一个key。
+        -->
+        <todo-item
+            v-for="item in groceryList"
+            v-bind:todo="item"
+            v-bind:key="item.id"
+        >
+        </todo-item>
+    </ol>
+</div>
+
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!'
+        }
+    });
+    let app2 = new Vue({
+        el:'#app-2',
+        data:{
+            message:'页面加载于 ' + new Date().toLocaleDateString()
+        }
+    });
+    let app3 = new Vue({
+       el:'#app-3',
+       data:{
+           seen:true
+       }
+    });
+    let app4 = new Vue({
+        el:'#app-4',
+        data:{
+            todos:[
+                {text:'学习javascripts'},
+                {text:'学习vue'},
+                {text:'做个项目'}
+            ]
+        }
+    });
+    let app5 = new Vue({
+        el:'#app-5',
+        data:{
+            message5:'hello vue.js'
+        },
+        methods:{
+            reverseMessage: function () {
+                this.message5 = this.message5.split('').reverse().join('');
+            }
+        }
+    });
+    let app6 = new Vue({
+        el:'#app-6',
+        data:{
+            message6:'Hello world'
+        }
+    });
+    Vue.component('todo-item' , {
+        props:['todo'],
+        template:'<li>{{todo.text}}'
+    })
+    let app7 = new Vue({
+        el:'#app-7',
+        data:{
+            groceryList:[
+                {id:0 , text:'蔬菜'},
+                {id:1 , text:'奶酪'},
+                {id:2 , text:'水果'},
+            ]
+        }
+    })
+</script>
+</body>
+</html>
