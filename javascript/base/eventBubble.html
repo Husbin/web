@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" id="html" onclick="clickDiv(event)">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body id="body">
+<div id="grandparent" style="width: 270px;height:270px;background-color: blue; margin: 0 auto; text-align: center;line-height: 3">祖父
+    <div id="parent" style="width: 180px;height:180px;background-color: cadetblue;margin: 0 auto;">父亲
+        <div id="child" style="width: 90px;height:90px;background-color: cyan;margin: 0 auto;" >孩子
+        </div>
+    </div>
+</div>
+<!--<div id="child" style="width: 90px;height:90px;background-color: cyan;margin: 0 auto;" onclick="showMessage(event)" >孩子-->
+<!--</div>-->
+</body>
+<script type="text/javascript">
+    let child = document.getElementById("child");
+    let parent = document.getElementById("parent");
+    let grandparent = document.getElementById("grandparent");
+    let body = document.getElementById("body");
+    let html = document.getElementById("html");
+
+    //采用事件委托优化性能
+    function clickDiv(event){
+        switch (event.target.id){
+            case 'child':console.log("click child!");break;
+            case 'parent':console.log("click parent!");break;
+            case 'grandparent':console.log("click grandparent!");break;
+            case 'body':console.log("click body!");break;
+            case 'html':console.log("click html!");break;
+        }
+    }
+    // function showMessage(event){
+    //     alert(event.target.id);
+    // }
+    /**
+     *  事件监听器
+     *  addEventListener(eventName , dealEventFunc , boolean)
+     *  eventName: 要处理的事件名
+     *  dealEventFunc: 作为事件处理程序的函数
+     *  boolean: true表捕获事件，false表冒泡事件
+     * */
+    // 捕获事件流
+    // child.addEventListener("click",function () {
+    //     console.log("捕获事件流：click child!");
+    // },true);
+    // parent.addEventListener("click",function () {
+    //     console.log("捕获事件流：click parent!");
+    // },true);
+    // grandparent.addEventListener("click",function () {
+    //     console.log("捕获事件流：click grandparent!");
+    // },true);
+    // body.addEventListener("click",function () {
+    //     console.log("捕获事件流：click body!");
+    // },true);
+    // html.addEventListener("click",function () {
+    //     console.log("捕获事件流：click html!");
+    // },true);
+    // document.addEventListener("click" , function () {
+    //     console.log("捕获事件流：click document!")
+    // },true);
+    // window.addEventListener("click" , function (ev) {
+    //     console.log("捕获事件流：click window!")
+    // },true);
+
+    //冒泡事件流
+    // child.addEventListener("click",function (event) {
+    //     console.log("冒泡事件流：click child!");
+    //     //阻止冒泡行为
+    //     //event.stopPropagation();          //IE
+    //     event.cancelBubble = true;        //w3c
+    // },false);
+    // parent.addEventListener("click",function () {
+    //     console.log("冒泡事件流：click parent!");
+    // },false);
+    // grandparent.addEventListener("click",function () {
+    //     console.log("冒泡事件流：click grandparent!");
+    // },false);
+    // body.addEventListener("click",function () {
+    //     console.log("冒泡事件流：click body!");
+    // },false);
+    //
+    // html.addEventListener("click",function () {
+    //     console.log("冒泡事件流：click html!");
+    // },false);
+    // document.addEventListener("click" , function () {
+    //     console.log("冒泡事件流：click document!");
+    // },false);
+    // window.addEventListener("click" , function (ev) {
+    //     console.log("冒泡事件流：click window!");
+    // },false);
+</script>
+</html>
