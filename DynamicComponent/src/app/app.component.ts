@@ -68,11 +68,11 @@ export class AppComponent {
 
   saveForm() {
     this.componentHost.viewContainerRef.clear();
-    // todo 将表单模板存到后端
+    //  将表单模板存到后端
     console.log(this.formJson);
     this.save = true;
     setTimeout(() => {
-      // todo 根据json重新解析，其实就像预览一样，调用createForm
+      // t 根据json重新解析，其实就像预览一样，调用createForm
       // 延时3s查看效果，便于理解
       this.createForm(this.formJson);
     }, 3000);
