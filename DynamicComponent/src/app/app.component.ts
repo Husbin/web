@@ -15,7 +15,7 @@ export class AppComponent {
   public baseData = JSON.parse(JSON.stringify(FormJson.basedata));
   public formJson = [];
   public save = false;          // 模拟根据后端json重新加载表单
-  public formJsonText: string; // json文本
+  public formJsonText = ''; // json文本
   constructor(
     // 注入ComponentFactoryResolver
     private componentFactoryResolver: ComponentFactoryResolver
