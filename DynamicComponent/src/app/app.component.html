@@ -8,7 +8,7 @@
   <!--<button (click)="clearView()">清除视图</button>-->
 <!--</div>-->
 
-<div style="width: 300px; float: left;height: 800px">
+<div style="width: 300px; float: left;height: 400px" align="center">
   <p>示例：创建自定义输入框</p>
   <div>
   <label for="name">输入框名字:</label>
@@ -24,16 +24,33 @@
         [(ngModel)]="baseData.hintText"
       >
     </div>
+  <div align="center" style="margin: 10px">
   <button (click)="createInputComponent()">动态创建组件</button>
+  </div>
 </div>
 
 
-<div style="width: 300px;margin-left: 500px;height: 800px" >
+<div style="width: 300px;margin-left: 500px;height: 400px" align="center">
   <div>
-  <p>示例：预览</p>
+  <p *ngIf="save === false">示例：预览</p>
+    <div *ngIf="save">
+      <p>--------JSON重新转化为表单-----------</p>
+      <p>--------延时让效果更明显-----------</p>
+    </div>
   <ng-template dynamicComponent></ng-template>
   </div>
+  <div style="margin: 10px">
   <button (click)="saveForm()">保存模板</button>
+  </div>
+</div>
+
+<div style="width: 500px;height: 400px" align="center">
+  <div>
+    <p >打印JSON</p>
+  </div>
+  <div style="margin: 10px">
+    <textarea [(ngModel)] = "formJsonText" rows="30" style="width: 500px"></textarea>
+  </div>
 </div>
 
 
