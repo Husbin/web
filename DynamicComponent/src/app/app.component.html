@@ -1,0 +1,40 @@
+<!--<div style="text-align:center">-->
+  <!--<h1>-->
+    <!--{{ title }}-->
+  <!--</h1>-->
+  <!--&lt;!&ndash;动态产生组件的容器&ndash;&gt;-->
+  <!--<ng-template dynamicComponent></ng-template>-->
+  <!--<button (click)="createNewComponent()">动态创建组件</button>-->
+  <!--<button (click)="clearView()">清除视图</button>-->
+<!--</div>-->
+
+<div style="width: 300px; float: left;height: 800px">
+  <p>示例：创建自定义输入框</p>
+  <div>
+  <label for="name">输入框名字:</label>
+    <input
+      id="name"
+      [(ngModel)]="baseData.name"
+    >
+  </div>
+  <div>
+      <label for="placeholder">输入框提示:</label>
+      <input
+        id="placeholder"
+        [(ngModel)]="baseData.hintText"
+      >
+    </div>
+  <button (click)="createInputComponent()">动态创建组件</button>
+</div>
+
+
+<div style="width: 300px;margin-left: 500px;height: 800px" >
+  <div>
+  <p>示例：预览</p>
+  <ng-template dynamicComponent></ng-template>
+  </div>
+  <button (click)="saveForm()">保存模板</button>
+</div>
+
+
+
